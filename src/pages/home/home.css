@@ -1,0 +1,85 @@
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-top {
+    display: flex;
+    align-items: center;
+}
+
+.user-divider {
+    background-color: #999999;
+    height: 1px;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.home img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 40px;
+}
+
+.userinfo .name {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.user-bottom p {
+    line-height: 28px;
+    font-size: 14px;
+    color:#999999;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.home .num {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.home .num .ant-card-body {
+    display: flex;
+    padding: 10px 25px;
+   
+}
+
+.home .num .ant-card {
+    width: 33%;
+    margin: 1px;
+}
+
+.home .num .icon-box {
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 85px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.home .num .icon-box .anticon {
+    font-size: 30px;
+}
+
+.home .num .detail .num {
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+
+.home .num .detail .txt {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    color:#999999;
+}
+
+.graph {
+    display: flex;
+}
