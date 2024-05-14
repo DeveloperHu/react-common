@@ -4,6 +4,7 @@ import CommonSider from "../components/commonSider";
 import CommonHeader from '../components/commonHeader'
 import { Button, Layout, Menu, theme } from "antd";
 import { useSelector } from "react-redux";
+import CommonTag from "../components/commonTag";
 
 const { Header, Sider, Content } = Layout;
 const Main = () => {
@@ -19,6 +20,7 @@ const Main = () => {
       <CommonSider collapsed={isCollapsed} />
       <Layout>
         <CommonHeader collapsed={isCollapsed}/>
+        <CommonTag/>
         <Content
           style={{
             margin: "24px 16px",
