@@ -5,6 +5,9 @@ import * as Icon from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import { useNavigate } from "react-router-dom";
 
+import { useDispatch } from 'react-redux'
+import  {selectMenuList} from '../../store/reducers/tab'
+
 const { Header, Sider, Content } = Layout;
 
 //动态获取icon
@@ -33,8 +36,34 @@ const items = MenuConfig.map((item) => {
 const CommonSider = ({ collapsed }) => {
   const [current,setCurrent] = useState(items[0].key)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  //添加数据到store中
+  const setTabsList = (val) => {
+    dispatch(selectMenuList(val))
+  }
+  //点击菜单
   const setKey = (e) => {
+    console.log('点击菜单',e)
     setCurrent(e.key)
+    let data 
+    MenuConfig.forEach(item => {
+      if(item.path === e.keyPath[e.keyPath.length-1]){
+        data = item
+        if(e.keyPath.length > 1){
+          data = item.children.find(child => {
+            return child.path === e.key
+          })
+        }
+      }
+    })
+    //设置菜单
+    setTabsList({
+      path:data.path,
+      label:data.label,
+      name:data.name
+    })
+    //菜单跳转
     navigate(e.key,{replace:true})
   }
   

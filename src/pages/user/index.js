@@ -97,7 +97,6 @@ function User() {
 
   const getTableData = async () => {
     const { list } = await getUser(listData);
-    console.log("用户数据", list);
     setTableData(list);
   };
 
