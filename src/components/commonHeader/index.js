@@ -4,14 +4,16 @@ import { Button, Layout, Avatar, Dropdown } from "antd";
 import "./index.css";
 
 import { useDispatch } from "react-redux";
-import {setCollspased} from '../../store/reducers/tab'
+import { setCollspased } from "../../store/reducers/tab";
+import { useNavigate } from "react-router-dom";
 const { Header } = Layout;
 
-
-export default function CommonHeader({collapsed}) {
+export default function CommonHeader({ collapsed }) {
+  const navigate = useNavigate();
   const logout = () => {
-    // localStorage.removeItem('token')
-    // window.location.href = '/login'
+    localStorage.removeItem("token");
+    //跳到登录页面
+    navigate("/login");
   };
   const items = [
     {
@@ -25,7 +27,7 @@ export default function CommonHeader({collapsed}) {
     {
       key: "2",
       label: (
-        <a target="_blank" rel="noopener noreferrer" onClick={() => logout}>
+        <a target="_blank" rel="noopener noreferrer" onClick={() => logout()}>
           退出
         </a>
       ),
@@ -35,14 +37,14 @@ export default function CommonHeader({collapsed}) {
   //点击展开/收起菜单
   const tabDispatch = useDispatch();
   const setCollapsed = () => {
-    tabDispatch(setCollspased())
+    tabDispatch(setCollspased());
   };
   return (
     <Header className="header-container">
       <Button
         type="text"
         icon={<MenuFoldOutlined />}
-        onClick={()=>setCollapsed()}
+        onClick={() => setCollapsed()}
         style={{
           fontSize: "16px",
           width: 64,
