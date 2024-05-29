@@ -11,6 +11,7 @@ const tabSlice = createSlice({
         label: "首页",
       },
     ],
+    currentMenu: {},
   },
   reducers: {
     setCollspased(state) {
@@ -19,11 +20,14 @@ const tabSlice = createSlice({
     //设置菜单
     selectMenuList(state, { payload: val }) {
       if (val.name != "home") {
+        state.currentMenu = val
         //去除掉已经存在的菜单
         let result = state.tabList.findIndex((item) => item.name === val.name);
         if (result === -1) {
           state.tabList.push(val);
         }
+      }else {
+        state.currentMenu = {}
       }
     },
   },
